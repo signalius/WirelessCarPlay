@@ -48,7 +48,7 @@ There are some rumors on Internet that is necessary to slow down I2C for MFI chi
 ```
 sudo dtoverlay i2c-gpio,bus=2,i2c_gpio_sda=2,i2c_gpio_scl=3,i2c_gpio_delay_us=50
 ```
-However I see that is noc necessary and you can use /dev/i2c-1 with normal speed.
+However I see that this is not necessary and you can use /dev/i2c-1 with normal speed.
 
 To test MFI chip you have to execute ```airplayutil mfi``` like here:
 
