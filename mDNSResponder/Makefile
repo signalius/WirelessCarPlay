@@ -23,7 +23,7 @@ VER =
 ifneq ($(strip $(GCC_VERSION)),)
 	VER = -- GCC_VERSION=$(GCC_VERSION)
 endif
-echo "VER = $(VER)"
+#echo "VER = $(VER)"
 
 installSome:
 	cd "$(SRCROOT)/mDNSMacOSX"; xcodebuild install     OBJROOT=$(OBJROOT) SYMROOT=$(SYMROOT) DSTROOT=$(DSTROOT) MVERS=$(MVERS) SDKROOT=$(SDKROOT) -target Build\ Some $(VER) 

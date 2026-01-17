@@ -288,6 +288,7 @@ AudioConverter_OBJS		+= $(OBJDIR)/AudioConverterStub.so.o
 
 # Libraries
 
+LINKFLAGS				+= -Wl,--no-as-needed
 ifeq ($(qnx),1)
 	LINKFLAGS			+= -lbacktrace
 	LINKFLAGS			+= -lsocket
@@ -305,9 +306,9 @@ LINKFLAGS				+= -lm
 .PHONY : all
 all: $(TARGETS)
 
-$(BUILDROOT)/airplayutil: $(AirPlayUtil_OBJS) $(BUILDROOT)/libAirPlaySupport.so $(BUILDROOT)/libAirPlay.so $(BUILDROOT)/libCoreUtils.so
+$(BUILDROOT)/airplayutil: $(AirPlayUtil_OBJS) $(BUILDROOT)/libAirPlaySupport.so $(BUILDROOT)/libAirPlay.so $(BUILDROOT)/libCoreUtils.so 
 	@echo "Linking ($(os)-$(config)) $(ColorMagenta)$(notdir $@)$(ColorEnd)"
-	$(quiet)$(CC) $(LINKFLAGS) -lAirPlaySupport -lAirPlay -lCoreUtils -o $@ $^
+	$(quiet)$(CC) $(LINKFLAGS) -lAirPlaySupport -lAirPlay -lCoreUtils -ldns_sd -o $@ $^
 	$(quiet)$(STRIP) $@
 	@echo "$(ColorCyan)=== BUILD COMPLETE: $(notdir $@) ($(os)-$(config))$(ColorEnd)"
 

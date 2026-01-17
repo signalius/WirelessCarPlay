@@ -81,9 +81,9 @@
 	#include <fcntl.h>
 	#include <pwd.h>
 	#include <sys/stat.h>
-	#include <sys/sysctl.h>
 	#include <sys/uio.h>
 	#include <sys/un.h>
+	#include <linux/sysctl.h>
 #endif
 
 #include "HIDUtils.h"

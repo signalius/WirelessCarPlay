@@ -1482,6 +1482,7 @@ exit:
 static CFArrayRef _getHIDDevices( OSStatus *outErr )
 {
 	CFArrayRef					dictArray = NULL;
+	OSStatus			err;
 	
 	if( gHiFiTouch || gLoFiTouch )
 	{
@@ -1526,7 +1527,8 @@ static CFArrayRef _getHIDDevices( OSStatus *outErr )
 
 exit:
 	if( outErr ) *outErr = err;
-	return( result );
+//	return( result );
+	return( dictArray );
 }
 
 //===========================================================================================================================

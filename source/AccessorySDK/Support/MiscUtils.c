@@ -103,7 +103,7 @@
 	#include <pwd.h>
 	#include <spawn.h>
 	#include <sys/mman.h>
-	#include <sys/sysctl.h>
+	#include <linux/sysctl.h>
 	#include <sys/wait.h>
 	#include <unistd.h>
 #endif

@@ -89,7 +89,7 @@
 		#include <execinfo.h>
 		#include <mach/mach.h>
 		#include <mach/mach_vm.h>
-		#include <sys/sysctl.h>
+		#include <linux/sysctl.h>
 		
 		#if( !COMMON_SERVICES_NO_CORE_SERVICES )
 			#include <CoreAudio/CoreAudio.h>
@@ -124,7 +124,7 @@
 	#include <pthread.h>
 	#include <signal.h>
 	#include <syslog.h>
-	#include <sys/sysctl.h>
+	#include <linux/sysctl.h>
 	#include <sys/stat.h>
 	#include <sys/time.h>
 	#if( !TARGET_OS_QNX )

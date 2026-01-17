@@ -111,7 +111,7 @@
 	#include <pthread.h>
 	#include <sched.h>
 	#include <sys/socket.h>
-	#include <sys/sysctl.h>
+	#include <linux/sysctl.h>
 #endif
 
 #if 0

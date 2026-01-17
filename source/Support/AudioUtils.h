@@ -117,7 +117,8 @@ CFTypeID	AudioStreamGetTypeID( void );
 */
 typedef struct AudioStreamPrivate *		AudioStreamRef;
 
-OSStatus	AudioStreamCreate( AudioStreamRef *outStream );
+//OSStatus	AudioStreamCreate( AudioStreamRef *outStream );
+OSStatus	AudioStreamCreate( CFDictionaryRef inOptions, AudioStreamRef *outStream );
 #define 	AudioStreamForget( X ) do { if( *(X) ) { AudioStreamStop( *(X), false ); CFRelease( *(X) ); *(X) = NULL; } } while( 0 )
 
 //---------------------------------------------------------------------------------------------------------------------------
