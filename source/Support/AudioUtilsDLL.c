@@ -143,7 +143,8 @@ static void _AudioStreamGetTypeID( void *inContext )
 //	AudioStreamCreate
 //===========================================================================================================================
 
-OSStatus	AudioStreamCreate( AudioStreamRef *outStream )
+OSStatus	AudioStreamCreate( CFDictionaryRef inOptions, AudioStreamRef *outStream )
+//OSStatus	AudioStreamCreate( AudioStreamRef *outStream )
 {
 	OSStatus			err;
 	AudioStreamRef		me;

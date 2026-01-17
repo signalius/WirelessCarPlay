@@ -86,7 +86,7 @@
 #if( defined( MFI_AUTH_DEVICE_ADDRESS ) )
 	#define kMFiAuthDeviceAddress				MFI_AUTH_DEVICE_ADDRESS
 #else
-	#define kMFiAuthDeviceAddress				0x11
+	#define kMFiAuthDeviceAddress				0x10
 #endif
 
 #define kMFiAuthRetryDelayMics					5000 // 5 ms.
@@ -129,6 +129,7 @@ OSStatus	MFiPlatform_Initialize( void )
 {
 	// Cache the certificate at startup since the certificate doesn't change and this saves ~200 ms each time.
 	
+	printf("MFi initialize.\nI2C Device addr: %02X\nInterface: %s\n", kMFiAuthDeviceAddress, kMFiAuthDevicePath );
 	MFiPlatform_CopyCertificate( &gMFiCertificatePtr, &gMFiCertificateLen );
 	return( kNoErr );
 }
@@ -161,6 +162,7 @@ OSStatus
 	uint8_t *		signaturePtr;
 	
 	dlog( kLogLevelVerbose, "MFi auth create signature\n" );
+	printf("MFi Create signature. inDigestLen: %d\n", (int)inDigestLen);
 	
 	fd = open( kMFiAuthDevicePath, O_RDWR );
 	err = map_fd_creation_errno( fd );
@@ -227,6 +229,7 @@ OSStatus	MFiPlatform_CopyCertificate( uint8_t **outCertificatePtr, size_t *outCe
 	uint8_t			buf[ 2 ];
 	
 	dlog( kLogLevelVerbose, "MFi auth copy certificate\n" );
+	printf("MFi Copy certificate. certificateLen: %d\n", (int)certificateLen);
 	
 	// If the certificate has already been cached then return that as an optimization since it doesn't change.
 	

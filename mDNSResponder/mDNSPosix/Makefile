@@ -102,6 +102,7 @@ else
 
 # any target that contains the string "linux"
 ifeq ($(findstring linux,$(os)),linux)
+# DEBUG flag CFLAGS_OS = -DMDNS_VERBOSE -D_GNU_SOURCE -DHAVE_IPV6 -DNOT_HAVE_SA_LEN -DUSES_NETLINK -DHAVE_LINUX -DTARGET_OS_LINUX -fno-strict-aliasing
 CFLAGS_OS = -D_GNU_SOURCE -DHAVE_IPV6 -DNOT_HAVE_SA_LEN -DUSES_NETLINK -DHAVE_LINUX -DTARGET_OS_LINUX -fno-strict-aliasing
 LD = $(CC) -shared
 FLEXFLAGS_OS = -l

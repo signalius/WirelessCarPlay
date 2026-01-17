@@ -694,7 +694,8 @@ static OSStatus	_UpdateStreams( AirPlayReceiverSessionRef inSession )
 		
 		streamCtx->activeType = streamCtx->type;
 		streamCtx->session = inSession;
-		err = AudioStreamCreate( &streamCtx->stream );
+		CFDictionaryRef inOptions;
+		err = AudioStreamCreate( inOptions, &streamCtx->stream );
 		//TODO check what to do with inSession->server->audioStreamOptions; they are not used in AudioStreamCreate
 		require_noerr( err, exit );
 		AudioStreamSetDelegateContext( streamCtx->stream, inSession->delegate.context );
@@ -740,7 +741,8 @@ static OSStatus	_UpdateStreams( AirPlayReceiverSessionRef inSession )
 		
 		streamCtx->activeType = streamCtx->type;
 		streamCtx->session = inSession;
-		err = AudioStreamCreate( &streamCtx->stream );
+		CFDictionaryRef inOptions;
+		err = AudioStreamCreate( inOptions, &streamCtx->stream );
 		require_noerr( err, exit );
 		
 		AudioStreamSetOutputCallback( streamCtx->stream, _AudioOutputCallBack, streamCtx );

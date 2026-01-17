@@ -513,6 +513,7 @@ static void	cmd_mfi( void )
 	
 	ticks = UpTicks();
 	err = MFiPlatform_Initialize();
+	FPrintF( stderr, "MFi initialize err: %d\n", (int)err );
 	ticks = UpTicks() - ticks;
 	require_noerr( err, exit );
 	FPrintF( stderr, "Init time: %llu ms\n", UpTicksToMilliseconds( ticks ) );
